@@ -104,7 +104,7 @@ plot(p, main="p(y|x,z=HIGH)")
 
 # Inférence dans un réseau Bayésien
 
-Tous d'abord, construisez un réseau Bayésien complet (structure et paramètres) avec les instructions suivantes:
+Tout d'abord, construisez un réseau Bayésien complet (structure et paramètres) avec les instructions suivantes:
 
 ```R
 # structure
@@ -173,13 +173,13 @@ Ensuite, épurez le squelette en suivant l'algorithme suivant:
 3. pour chaque paire (ordonnée) de variables X et Y, et pour chaque ensemble **Z** de 2 variables adjacentes à X, tester X ⟂ Y | **Z**. Si la relation est vraie, alors retirer l'arc correspondant;
 4. procéder ainsi de suite avec des ensemble de taille 3, 4, etc.
 
-Astuce: utilisez la fonction `combn(s, m)` pour obtenir toutes les combinaisons de taille `m` d'un ensemble `s`. Pour obtenir le voisinage d'un noeud `x` dans un graphe `g`, utilisez `g$nodes[[x]]$nbr`. Pour supprimer un arc, utilisez `drop.edge(g, from = x, to = w)`. Pour une exécution rapide, préférez un seuil de tolérance faible (alpha=0.01).
+Astuce: utilisez la fonction `combn(s, m)` pour obtenir toutes les combinaisons de taille `m` d'un ensemble `s`. Pour obtenir le voisinage d'un noeud `x` dans un graphe `g`, utilisez `g$nodes[[x]]$nbr`. Pour supprimer un arc, utilisez `drop.edge(g, from = x, to = x)`. Pour une exécution rapide, préférez un seuil de tolérance faible (alpha=0.01).
 
 ## Orienter les arcs
 
-Afin d'orienter les arcs, modifiez tout d'abord votre code de l'étape précédente afin de conserver chaque ensemble **Z**<sub>X,Y<\sub> qui a permis de retirer un arc X-Y. Enfin, orientez le graphe en respectant la règle suivante:
+Afin d'orienter les arcs, modifiez tout d'abord votre code de l'étape précédente afin de conserver chaque ensemble **Z**<sub>X,Y</sub> qui a permis de retirer un arc X-Y. Enfin, orientez le graphe en respectant la règle suivante:
 
-1. orienter X -> W <- Y s'il n'y a pas d'arc entre X et Y et si W est inclus dans **Z**<sub>X,Y<\sub>;
+1. orienter X -> W <- Y s'il n'y a pas d'arc entre X et Y et si W est inclus dans **Z**<sub>X,Y</sub>;
 2. pour chaque arc non-orienté restant, décider une orientation arbitraire sans ajouter de nouvelle *v*-structure au graphe.
 
 Astuce: utilisez `w %in% z` pour déterminer si un élément `w` est contenu dans un ensemble `z`. Pour placer un arc orienté, utilisez `set.arc(g, from = x, to = w)`.
