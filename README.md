@@ -48,8 +48,6 @@ Quelques commandes utiles:
 
 Le package *bnlearn* permet, entre autres, de faire des tests d'indépendance conditionnelle.
 
-Qu'obtient-on avec les instructions suivantes?
-
 ```R
 ci.test(x = "PAP", y = "SHNT", z = as.character(NULL), data = alarm, test = "mi")
 
@@ -94,7 +92,7 @@ p = prop.table(table(alarm[mask, c("STKV", "HR")]), margin = 1)
 plot(p, main="p(y|x)")
 ```
 
-Inspectez la relation entre *STKV* et *HR* sachant *CO* (vous pouvez remplacer `"HIGH"` par `"LOW"`, `"NORMAL"` et `"ZERO"`):
+Inspectez la relation entre *STKV* et *HR* sachant *CO* (vous pouvez remplacer `"HIGH"` par `"LOW"` ou `"NORMAL"`):
 
 ```R
 mask = alarm[, "CO"] == "HIGH"
