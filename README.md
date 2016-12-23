@@ -14,7 +14,7 @@ Créez un nouveau projet: File -> New Project -> New Directory
 
 Créez un nouveau script R dans lequel vous allez travailler: File -> New File -> R Script
 
-Commencer par charger la base *alarm*:
+Commencer par charger la base **alarm**:
 
 ```R
 library("bnlearn")
@@ -127,7 +127,7 @@ cpquery(bn, event = (STKV == "HIGH"), evidence = (HR == "LOW" & CO == "LOW"))
 
 ## Inférence exacte
 
-Récupérez le fichier *includes.R* qui contient la fonction `exact.dist()`, et ajoutez-le à votre projet. Vous pouvez désormais faire de l'inférence exacte comme suit:
+Récupérez le fichier [**includes.R**](https://github.com/gasse/pgm_tutorial/blob/master/includes.R) qui contient la fonction `exact.dist()`, et ajoutez-le à votre projet. Vous pouvez désormais faire de l'inférence exacte comme suit:
 
 ```R
 source("includes.R")
