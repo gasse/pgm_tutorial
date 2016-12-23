@@ -1,7 +1,3 @@
----
-title: "Tutoriel PGM"
----
-
 # Installation
 
 Démarrez Rstudio, puis installez les paquets *bnlearn* et *Rgraphviz*.
@@ -50,7 +46,9 @@ Quelques commandes utiles:
 
 # Prise en main de *bnlearn*
 
-Le package *bnlearn* permet, entre autres, de faire des tests d'indépendance conditionnelle. Qu'obtient-on avec les instructions suivantes?
+Le package *bnlearn* permet, entre autres, de faire des tests d'indépendance conditionnelle.
+
+Qu'obtient-on avec les instructions suivantes?
 
 ```R
 ci.test(x = "PAP", y = "SHNT", z = as.character(NULL), data = alarm, test = "mi")
@@ -79,12 +77,12 @@ prop.table(ct, margin = 2)
 
 Parmis les relations d'indépendance ci-dessous, lesquelles sont vraies?
 
-+ STKV ⟂ HR | ∅;
-+ STKV ⟂ HR | CO;
-+ HR ⟂ CO | ∅;
-+ HR ⟂ CO | STKV;
-+ CO ⟂ STKV | ∅;
-+ CO ⟂ STKV | HR.
++ `STKV ⟂ HR | ∅`;
++ `STKV ⟂ HR | CO`;
++ `HR ⟂ CO | ∅`;
++ `HR ⟂ CO | STKV`;
++ `CO ⟂ STKV | ∅`;
++ `CO ⟂ STKV | HR`.
 
 Quelle structure de réseau Bayésien permet d'encoder le modèle d'indépendance entre les trois variables *STKV*, *HR* et *CO* ?
 
