@@ -171,7 +171,7 @@ Ensuite, épurez le squelette en suivant l'algorithme suivant:
 3. pour chaque paire (ordonnée) de variables X et Y, et pour chaque ensemble **Z** de 2 variables adjacentes à X, tester X ⟂ Y | **Z**. Si la relation est vraie, alors retirer l'arc correspondant;
 4. procéder ainsi de suite avec des ensemble de taille 3, 4, etc.
 
-Astuce: utilisez la fonction `combn(s, m)` pour obtenir toutes les combinaisons de taille `m` d'un ensemble `s`. Pour obtenir le voisinage d'un noeud `x` dans un graphe `g`, utilisez `g$nodes[[x]]$nbr`. Pour supprimer un arc, utilisez `drop.edge(g, from = x, to = x)`. Pour une exécution rapide, préférez un seuil de tolérance faible (alpha=0.01).
+Astuce: utilisez la fonction `combn(s, m)` pour obtenir toutes les combinaisons de taille `m` d'un ensemble `s` (attention le retour est sous forme de matrice). Pour obtenir le voisinage d'un noeud `x` dans un graphe `g`, utilisez `g$nodes[[x]]$nbr`. Pour supprimer un arc, utilisez `g = drop.edge(g, from = x, to = x)`. Pour une exécution rapide, préférez un seuil de tolérance faible (alpha=0.01).
 
 ## Orienter les arcs
 
@@ -180,4 +180,4 @@ Afin d'orienter les arcs, modifiez tout d'abord votre code de l'étape précéde
 1. orienter X -> W <- Y s'il n'y a pas d'arc entre X et Y et si W n'est pas inclus dans **Z**<sub>X,Y</sub>;
 2. pour chaque arc non-orienté restant, décider une orientation arbitraire sans ajouter de nouvelle *v*-structure au graphe.
 
-Astuce: utilisez `w %in% z` pour déterminer si un élément `w` est contenu dans un ensemble `z`. Pour placer un arc orienté, utilisez `set.arc(g, from = x, to = w)`.
+Astuce: utilisez `w %in% z` pour déterminer si un élément `w` est contenu dans un ensemble `z`. Pour placer un arc orienté, utilisez `g = set.arc(g, from = x, to = w)`.
