@@ -143,7 +143,7 @@ p = exact.dist(bn, event = c("INT", "APL"), evidence = TRUE)
 
 ## Do-calculus
 
-A l'aide de la fonction `exact.dist()`, calculez la distribution conditionnelle de *HYP* sachant *STKV*, autrement dit p(y|x). Puis, en supposant que le réseau bayésien est causal, calculez la distribution de probabilité de *HYP* sachant que la valeur de *STKV* a été forcée, autrement dit p(y|do(x)). On rappelle la formule d'ajustement pour "supprimer" une variable confondante: p(y|do(x)) = ∑<sub>z</sub> p(y|x,z)
+A l'aide de la fonction `exact.dist()`, calculez la distribution conditionnelle de *HYP* sachant *STKV*, autrement dit p(y|x). Puis, en supposant que le réseau bayésien est causal, calculez la distribution de probabilité de *HYP* sachant que la valeur de *STKV* a été forcée, autrement dit p(y|do(x)). On rappelle la formule d'ajustement pour "supprimer" une variable confondante: p(y|do(x)) = ∑<sub>z</sub> p(y|x,z)p(z)
 
 # L'algorithme PC
 
@@ -177,7 +177,7 @@ Astuce: utilisez la fonction `combn(s, m)` pour obtenir toutes les combinaisons 
 
 Afin d'orienter les arcs, modifiez tout d'abord votre code de l'étape précédente afin de conserver chaque ensemble **Z**<sub>X,Y</sub> qui a permis de retirer un arc X-Y. Enfin, orientez le graphe en respectant la règle suivante:
 
-1. orienter X -> W <- Y s'il n'y a pas d'arc entre X et Y et si W est inclus dans **Z**<sub>X,Y</sub>;
+1. orienter X -> W <- Y s'il n'y a pas d'arc entre X et Y et si W n'est pas inclus dans **Z**<sub>X,Y</sub>;
 2. pour chaque arc non-orienté restant, décider une orientation arbitraire sans ajouter de nouvelle *v*-structure au graphe.
 
 Astuce: utilisez `w %in% z` pour déterminer si un élément `w` est contenu dans un ensemble `z`. Pour placer un arc orienté, utilisez `set.arc(g, from = x, to = w)`.
